@@ -13,7 +13,10 @@
     "node"
   ],
   "devDependencies": {
-    "mathjax-full": "3.2.2"
+    "mathjax-full": "3.2.2",
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.8.2",
+    "webpack": "^5.98.0"
   },
   "maintainers": [
     "MathJax Consortium <info@mathjax.org> (http://www.mathjax.org)"
