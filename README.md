@@ -168,6 +168,69 @@ See the
 and the [MathJax Node
 Repository](https://github.com/mathjax/MathJax-demos-node) for more details.
 
+### Using MathJax with TypeScript and Webpack
+
+To use MathJax with TypeScript and Webpack, follow these steps:
+
+1. Install the necessary packages:
+
+```bash
+npm install typescript ts-loader webpack webpack-cli --save-dev
+```
+
+2. Create a `tsconfig.json` file in the root of your project with the following content:
+
+```json
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "commonjs",
+    "sourceMap": true
+  },
+  "include": ["es5"]
+}
+```
+
+3. Create a `webpack.config.js` file in the root of your project with the following content:
+
+```js
+const path = require('path');
+
+module.exports = {
+  entry: './es5/startup.js',
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+  },
+  module: {
+    rules: [
+      {
+        test: /\.ts$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
+    ],
+  },
+  resolve: {
+    extensions: ['.ts', '.js'],
+  },
+};
+```
+
+4. Add a `build` script to your `package.json`:
+
+```json
+"scripts": {
+  "build": "webpack"
+}
+```
+
+5. Run the build script to compile your TypeScript code and bundle it with Webpack:
+
+```bash
+npm run build
+```
+
 ## Reducing the Size of the Components Directory
 
 Since the `es5` directory contains *all* the component files, so if

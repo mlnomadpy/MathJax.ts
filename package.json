@@ -13,7 +13,10 @@
     "node"
   ],
   "devDependencies": {
-    "mathjax-full": "3.2.2"
+    "mathjax-full": "3.2.2",
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.8.2",
+    "webpack": "^5.98.0"
   },
   "maintainers": [
     "MathJax Consortium <info@mathjax.org> (http://www.mathjax.org)"
@@ -54,6 +57,7 @@
     "postmake-es5": "npm run --silent title --mathjax:title='Cleaning Up...' && npm run --silent clean:node",
     "preget-es5": "npm run --silent clean:node",
     "get-es5": "npm run --silent install:mj3 && npm run --silent move",
-    "postget-es5": "npm run --silent title --mathjax:title='Cleaning Up...' && npm run --silent clean:node"
+    "postget-es5": "npm run --silent title --mathjax:title='Cleaning Up...' && npm run --silent clean:node",
+    "build": "webpack"
   }
 }
